@@ -84,6 +84,3 @@ Second Page
 Disabled Buttons after collector end
 
 ![pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
-
-Inspired by:
-<https://github.com/saanuregh/discord.js-pagination>
