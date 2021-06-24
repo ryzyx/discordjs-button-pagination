@@ -67,14 +67,14 @@ This will not work with buttons whose style is set as 'LINK' as they do not trig
 
 First Page
 
-[pic1]()
+[pic1](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic1.PNG)
 
 
 Second Page
 
-[pic2]()
+[pic2](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic2.PNG)
 
 
 Disabled Buttons after collector end
 
-[pic3]()
+[pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
