@@ -21,7 +21,7 @@ __Basic Bot Example__
 // Import the discordjs-button-pagination package
 const paginationEmbed = require('discordjs-button-pagination');
 
-// Use either MessageEmbed or RichEmbed to make pages
+// Use MessageEmbed to make pages
 // Keep in mind that Embeds should't have their footers set since the pagination method sets page info there
 const { MessageEmbed , MessageButton} = require('discord.js');
 const embed1 = new MessageEmbed()
