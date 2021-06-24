@@ -54,9 +54,7 @@ pages = [
 
 buttonList = [
     button1,
-    button2,
-    //...
-    //buttonN
+    button2
 ]
 
 
