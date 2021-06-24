@@ -1,0 +1,27 @@
+{
+  "name": "discordjs-button-pagination",
+  "version": "1.0.0",
+  "description": "A simple package for pagination using buttons introduced in discord.js v13.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryzyx/discordjs-button-pagination.git"
+  },
+  "keywords": [
+    "Discord",
+    "Buttons",
+    "Pagination"
+  ],
+  "author": "Ryzyx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryzyx/discordjs-button-pagination/issues"
+  },
+  "homepage": "https://github.com/ryzyx/discordjs-button-pagination#readme",
+  "dependencies": {
+    "discord.js": "^13.0.0-dev.6d3d00b44577a70e840f0187d6894043677c5329"
+  }
+}
