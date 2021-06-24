@@ -1,3 +1,9 @@
+<div align="center">
+  <p>
+    <a href="https://npmjs.com/package/discordjs-button-pagination
+/"><img src="https://nodei.co/npm/discordjs-button-pagination.png?downloads=true&stars=true" alt="NPM info" /></a>
+  </p>
+</div>
 # discordjs-button-pagination
 A simple package to paginate discord embeds via discord buttons introduced in [discord.js v13](https://github.com/discordjs/discord.js/tree/master).
 
@@ -78,3 +84,6 @@ Second Page
 Disabled Buttons after collector end
 
 ![pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
+
+Inspired by:
+<https://github.com/saanuregh/discord.js-pagination>
