@@ -2,7 +2,7 @@
 A simple package to paginate discord embeds via discord buttons introduced in [discord.js v13](https://github.com/discordjs/discord.js/tree/master).
 
 # Installation
-* npm install discordjs-button-pagination
+* `npm install discordjs-button-pagination`
 
 # Requirements
 Node.js 14.0.0 or newer is required
