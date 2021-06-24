@@ -12,7 +12,7 @@ Discord.js 13.0.0
 # Usage
 __Basic Bot Example__
 ```js
-// Import the discord.js-pagination package
+// Import the discordjs-button-pagination package
 const paginationEmbed = require('discordjs-button-pagination');
 
 // Use either MessageEmbed or RichEmbed to make pages
