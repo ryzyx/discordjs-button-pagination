@@ -13,7 +13,11 @@
   "keywords": [
     "Discord",
     "Buttons",
-    "Pagination"
+    "Pagination",
+    "discord-buttons",
+    "paginator",
+    "discordjs",
+    "discord.js"
   ],
   "author": "Ryzyx",
   "license": "MIT",
@@ -22,6 +26,6 @@
   },
   "homepage": "https://github.com/ryzyx/discordjs-button-pagination#readme",
   "dependencies": {
-    "discord.js": "^13.0.0-dev.6d3d00b44577a70e840f0187d6894043677c5329"
+    "discord.js": "^13.0.0-dev.5af2ef5fbc7ad11281f38384c360ae79efe63b39"
   }
 }
