@@ -26,6 +26,6 @@
   },
   "homepage": "https://github.com/ryzyx/discordjs-button-pagination#readme",
   "dependencies": {
-    "discord.js": "^13.0.0-dev.5af2ef5fbc7ad11281f38384c360ae79efe63b39"
+    "discord.js": "^13.0.0-dev.02f55f0.1626742085"
   }
 }

@@ -33,12 +33,12 @@ const embed2 = new MessageEmbed()
                 .setDescription('This is the second page');
 
 const button1 = new MessageButton()
-                .setCustomID('previousbtn')
+                .setCustomId('previousbtn')
                 .setLabel('Previous')
                 .setStyle('DANGER');
 
 const button2 = new MessageButton()
-                .setCustomID('nextbtn')
+                .setCustomId('nextbtn')
                 .setLabel('Next')
                 .setStyle('SUCCESS');
 
@@ -60,7 +60,7 @@ buttonList = [
 
 // Call the paginationEmbed method, first three arguments are required
 // timeout is the time till the reaction collectors are active, after this you can't change pages (in ms), defaults to 120000
-paginationEmbed(msg, pages, buttonList, timeout);
+paginationEmbed(message, pages, buttonList, timeout);
 // There you go, now you have paged embeds
 ```
 
