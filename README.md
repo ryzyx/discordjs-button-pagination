@@ -1,3 +1,5 @@
+[![discordjs-pagination](https://user-images.githubusercontent.com/57099786/126899921-eb1e0728-ab64-4d28-a59c-835662957a8a.png)](https://npmjs.com/package/discordjs-button-pagination)
+
 <div align="center">
   <p>
     <a href="https://npmjs.com/package/discordjs-button-pagination
