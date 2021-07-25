@@ -87,3 +87,5 @@ Disabled Buttons after collector end
 ![pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
 
 
+### For any issues or suggestions, kindly open an issue/pull request on the [**GitHub Repository**](https://github.com/ryzyx/discordjs-button-pagination)
+
