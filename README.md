@@ -74,17 +74,20 @@ This will not work with buttons whose style is set as 'LINK' as they do not trig
 
 First Page
 
-![pic1](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic1.PNG)
+![pic1](https://user-images.githubusercontent.com/57099786/126900536-0daa030b-eaae-4a00-ad1c-912a2a5ca6af.PNG)
+
 
 
 Second Page
 
-![pic2](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic2.PNG)
+![pic2](https://user-images.githubusercontent.com/57099786/126900544-96fd0163-26f8-44b4-b823-f84756ae0028.PNG)
+
 
 
 Disabled Buttons after collector end
 
-![pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
+![pic3](https://user-images.githubusercontent.com/57099786/126900553-b9ab9cb7-1dfd-45ae-9e31-469b249f0c18.PNG)
+
 
 
 ### For any issues or suggestions, kindly open an issue/pull request on the [**GitHub Repository**](https://github.com/ryzyx/discordjs-button-pagination)
