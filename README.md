@@ -66,6 +66,7 @@ paginationEmbed(message, pages, buttonList, timeout);
 
 # Note
 This will not work with buttons whose style is set as 'LINK' as they do not trigger an interaction event. The buttons will auto disable once the the collector ends after the timeout.
+## The collector timer resets after receiving a button interaction.
 
 # Preview
 
@@ -82,3 +83,5 @@ Second Page
 Disabled Buttons after collector end
 
 ![pic3](https://raw.githubusercontent.com/ryzyx/discordjs-button-pagination/main/Example/pic3.PNG)
+
+
