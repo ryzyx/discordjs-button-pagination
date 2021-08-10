@@ -28,7 +28,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
   const row = new MessageActionRow().addComponents(buttonList);
   const curPage = await interaction.reply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
-    components: [row],
+    components: [row],fetchReply: true,
   });
 
   const filter = (i) =>
