@@ -13,7 +13,7 @@ const {
  * @param {number} timeout
  * @returns
  */
-const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
+const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000) => {
   if (!msg && !msg.channel) throw new Error("Channel is inaccessible.");
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
@@ -26,7 +26,7 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
-  const curPage = await msg.channel.send({
+  const curPage = await interaction.send({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],
   });
