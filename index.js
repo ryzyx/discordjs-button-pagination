@@ -26,7 +26,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
-  const curPage = await interaction.send({
+  const curPage = await interaction.reply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],
   });
