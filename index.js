@@ -14,7 +14,7 @@ const {
  * @returns
  */
 const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000) => {
-  if (!msg && !msg.channel) throw new Error("Channel is inaccessible.");
+  //if (!msg && !msg.channel) throw new Error("Channel is inaccessible.");
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
   if (buttonList[0].style === "LINK" || buttonList[1].style === "LINK")
