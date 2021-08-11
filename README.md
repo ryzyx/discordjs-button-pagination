@@ -10,14 +10,27 @@
 # discordjs-button-pagination
 A simple package to paginate discord embeds via discord buttons introduced in [discord.js v13](https://github.com/discordjs/discord.js/tree/master).
 
+# Versions
+
+## `discordjs-button-pagination@interaction` [Default]
+for slash command interaction.
+
+## `discordjs-button-pagination@msg`
+for message command.
 # Installation
-* `npm install discordjs-button-pagination`
+For `message` event
+* `npm install discordjs-button-pagination@msg`
+
+For `interaction` event
+* `npm install discordjs-button-pagination@interaction`
+
+## Default command: `npm install discordjs-button-pagination` will install the **`interaction`** version
 
 # Requirements
-Node.js 14.0.0 or newer is required along with Discord.js 13.0.0
+Node.js 16.6.1 or newer is required along with Discord.js 13.0.0 or newer.
 
 
-# Usage
+# Usage for Message Command
 __Basic Bot Example__
 ```js
 // Import the discordjs-button-pagination package
