@@ -7,7 +7,7 @@ const {
 
 /**
  * Creates a pagination embed
- * @param {Message} msg
+ * @param {Interaction} interaction
  * @param {MessageEmbed[]} pages
  * @param {MessageButton[]} buttonList
  * @param {number} timeout
