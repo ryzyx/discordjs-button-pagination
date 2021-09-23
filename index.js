@@ -23,13 +23,16 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
     );
   if (buttonList.length !== 2) throw new Error("Need two buttons.");
   
-  await interaction.deferReply();
-  
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
   
-  const curPage = await interaction.reply({
+  //has the interaction already been deferred? If not, defer the reply.
+  if (interaction.deferred == false){
+    await interaction.deferReply()
+  };
+
+  const curPage = await interaction.editReply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],fetchReply: true,
   });
