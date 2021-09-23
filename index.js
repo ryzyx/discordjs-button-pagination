@@ -26,10 +26,16 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
-  const curPage = await interaction.reply({
+  try {
+    const curPage = await interaction.reply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],fetchReply: true,
-  });
+       });} catch (error){
+      const curPage = await interaction.editReply({
+    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+    components: [row],fetchReply: true,
+        });
+    }
 
   const filter = (i) =>
     i.customId === buttonList[0].customId ||
