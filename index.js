@@ -31,7 +31,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],fetchReply: true,
        });} catch (error){
-      const curPage = await interaction.editReply({
+      const curPage = await interaction.deferUpdate({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],fetchReply: true,
         });
