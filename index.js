@@ -22,20 +22,17 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
       "Link buttons are not supported with discordjs-button-pagination"
     );
   if (buttonList.length !== 2) throw new Error("Need two buttons.");
-
+  
+  interaction.deferReply();
+  
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
-  try {
-    const curPage = await interaction.reply({
+  
+  const curPage = await interaction.reply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
     components: [row],fetchReply: true,
-       });} catch (error){
-      const curPage = await interaction.deferUpdate({
-    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
-    components: [row],fetchReply: true,
-        });
-    }
+  });
 
   const filter = (i) =>
     i.customId === buttonList[0].customId ||
