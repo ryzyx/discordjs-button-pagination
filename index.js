@@ -23,7 +23,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
     );
   if (buttonList.length !== 2) throw new Error("Need two buttons.");
   
-  interaction.deferReply();
+  await interaction.deferReply();
   
   let page = 0;
 
