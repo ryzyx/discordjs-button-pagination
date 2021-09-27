@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+	  "declaration": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "module": "CommonJS",
+	  "moduleResolution": "node",
+	  "noImplicitThis": true,
+	  "noUnusedLocals": true,
+	  "outDir": "bin",
+	  "removeComments": true,
+	  "target": "ESNext"
+	},
+	"include": [
+	  "src"
+	]
+  }

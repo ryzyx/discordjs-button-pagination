@@ -1,8 +1,8 @@
 {
   "name": "discordjs-button-pagination",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A simple package for pagination using buttons introduced in discord.js v13.",
-  "main": "index.js",
+  "main": "bin/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
