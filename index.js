@@ -13,7 +13,7 @@ const {
  * @param {number} timeout
  * @returns
  */
-const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000) => {
+const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000, customFooterText = "") => {
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
   if (buttonList[0].style === "LINK" || buttonList[1].style === "LINK")
@@ -24,15 +24,18 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
   
   let page = 0;
 
+  //There's probably a better way to do this, but this seems to work
+  if (customFooterText) customFooterText = ` - ${customFooterText}`;
+
   const row = new MessageActionRow().addComponents(buttonList);
   
   //has the interaction already been deferred? If not, defer the reply.
   if (interaction.deferred == false){
-    await interaction.deferReply()
+    await interaction.deferReply();
   };
 
   const curPage = await interaction.editReply({
-    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}${customFooterText}`)],
     components: [row],fetchReply: true,
   });
 
@@ -58,7 +61,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
     }
     await i.deferUpdate();
     await i.editReply({
-      embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+      embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}${customFooterText}`)],
       components: [row],
     });
     collector.resetTimer();
@@ -71,7 +74,7 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+        embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}${customFooterText}`)],
         components: [disabledRow],
       });
     }
