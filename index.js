@@ -13,7 +13,12 @@ const {
  * @param {number} timeout
  * @returns
  */
-const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000) => {
+const paginationEmbed = async (
+  interaction,
+  pages,
+  buttonList,
+  timeout = 120000
+) => {
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
   if (buttonList[0].style === "LINK" || buttonList[1].style === "LINK")
@@ -21,19 +26,20 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
       "Link buttons are not supported with discordjs-button-pagination"
     );
   if (buttonList.length !== 2) throw new Error("Need two buttons.");
-  
+
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
-  
-  //has the interaction already been deferred? If not, defer the reply.
-  if (interaction.deferred == false){
-    await interaction.deferReply()
-  };
 
-  const curPage = await interaction.editReply({
+  //has the interaction already been deferred? If not, defer the reply.
+  if (interaction.deferred == false) {
+    await interaction.deferReply();
+  }
+
+  const curPage = await interaction.reply({
     embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
-    components: [row],fetchReply: true,
+    components: [row],
+    fetchReply: true,
   });
 
   const filter = (i) =>
@@ -64,8 +70,8 @@ const paginationEmbed = async (interaction, pages, buttonList, timeout = 120000)
     collector.resetTimer();
   });
 
-  collector.on("end", () => {
-    if (!curPage.deleted) {
+  collector.on("end", (_, reason) => {
+    if (!curPage.deleted && reason !== "messageDelete") {
       const disabledRow = new MessageActionRow().addComponents(
         buttonList[0].setDisabled(true),
         buttonList[1].setDisabled(true)
