@@ -13,7 +13,7 @@ const {
  * @param {number} timeout
  * @returns
  */
-const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
+const paginationEmbed = async (msg, pages, buttonList, timeout = 120000, footerText, footerIcon) => {
   if (!msg && !msg.channel) throw new Error("Channel is inaccessible.");
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
@@ -22,12 +22,23 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
       "Link buttons are not supported with discordjs-button-pagination"
     );
   if (buttonList.length !== 2) throw new Error("Need two buttons.");
+  
+  var text;
+  if (footerText) {
+	  text = footerText
+  } else text = null
+  
+  var icon;
+  if (footerIcon) {
+	  icon = footerIcon
+  } else icon = null
 
   let page = 0;
+  
 
   const row = new MessageActionRow().addComponents(buttonList);
   const curPage = await msg.channel.send({
-    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+    embeds: [pages[page].setFooter({ text: (text ? `${text} | ` : "") + `Page ${page + 1} / ${pages.length}`, iconURL: icon })],
     components: [row],
   });
 
@@ -53,7 +64,7 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
     }
     await i.deferUpdate();
     await i.editReply({
-      embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+      embeds: [pages[page].setFooter({ text: (text ? `${text} | ` : "") + `Page ${page + 1} / ${pages.length}`, iconURL: icon })],
       components: [row],
     });
     collector.resetTimer();
@@ -66,7 +77,7 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+		embeds: [pages[page].setFooter({ text: (text ? `${text} | ` : "") + `Page ${page + 1} / ${pages.length}`, iconURL: icon })],
         components: [disabledRow],
       });
     }
@@ -75,3 +86,4 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
   return curPage;
 };
 module.exports = paginationEmbed;
+
