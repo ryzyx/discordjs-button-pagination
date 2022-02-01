@@ -80,6 +80,7 @@ const paginationEmbed = async (
         embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
         components: [disabledRow],
       });
+    }
   });
 
   return curPage;
