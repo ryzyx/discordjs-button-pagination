@@ -71,14 +71,15 @@ const paginationEmbed = async (
   });
 
   collector.on("end", (_, reason) => {
-    const disabledRow = new MessageActionRow().addComponents(
-      buttonList[0].setDisabled(true),
-      buttonList[1].setDisabled(true)
-    );
-    curPage.edit({
-      embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
-      components: [disabledRow],
-    });
+    if (reason !== "messageDelete") {
+      const disabledRow = new MessageActionRow().addComponents(
+        buttonList[0].setDisabled(true),
+        buttonList[1].setDisabled(true)
+      );
+      curPage.edit({
+        embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
+        components: [disabledRow],
+      });
   });
 
   return curPage;
