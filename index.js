@@ -37,7 +37,7 @@ const paginationEmbed = async (
   }
 
   const curPage = await interaction.editReply({
-    embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+    embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
     components: [row],
     fetchReply: true,
   });
@@ -64,20 +64,20 @@ const paginationEmbed = async (
     }
     await i.deferUpdate();
     await i.editReply({
-      embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+      embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
       components: [row],
     });
     collector.resetTimer();
   });
 
   collector.on("end", (_, reason) => {
-    if (!curPage.deleted && reason !== "messageDelete") {
+    if (reason !== "messageDelete") {
       const disabledRow = new MessageActionRow().addComponents(
         buttonList[0].setDisabled(true),
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+        embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
         components: [disabledRow],
       });
     }
