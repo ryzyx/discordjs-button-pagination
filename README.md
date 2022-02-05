@@ -75,7 +75,8 @@ buttonList = [
 
 // Call the paginationEmbed method, first three arguments are required
 // timeout is the time till the reaction collectors are active, after this you can't change pages (in ms), defaults to 120000
-paginationEmbed(interaction, pages, buttonList, timeout);
+// pageLabel is a string used in the footer before the page numbers, defaults to Page
+paginationEmbed(interaction, pages, buttonList, pageLabel, timeout);
 // There you go, now you have paged embeds
 ```
 

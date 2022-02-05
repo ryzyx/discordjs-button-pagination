@@ -10,6 +10,7 @@ const {
  * @param {Interaction} interaction
  * @param {MessageEmbed[]} pages
  * @param {MessageButton[]} buttonList
+ * @param {string} pageLabel
  * @param {number} timeout
  * @returns
  */
@@ -17,7 +18,8 @@ const paginationEmbed = async (
   interaction,
   pages,
   buttonList,
-  timeout = 120000
+  pageLabel = "Page",
+  timeout = 120000,
 ) => {
   if (!pages) throw new Error("Pages are not given.");
   if (!buttonList) throw new Error("Buttons are not given.");
@@ -37,7 +39,7 @@ const paginationEmbed = async (
   }
 
   const curPage = await interaction.editReply({
-    embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
+    embeds: [pages[page].setFooter({ text: `${pageLabel} ${page + 1} / ${pages.length}` })],
     components: [row],
     fetchReply: true,
   });
@@ -64,7 +66,7 @@ const paginationEmbed = async (
     }
     await i.deferUpdate();
     await i.editReply({
-      embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
+      embeds: [pages[page].setFooter({ text: `${pageLabel} ${page + 1} / ${pages.length}` })],
       components: [row],
     });
     collector.resetTimer();
@@ -77,7 +79,7 @@ const paginationEmbed = async (
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
+        embeds: [pages[page].setFooter({ text: `${pageLabel} ${page + 1} / ${pages.length}` })],
         components: [disabledRow],
       });
     }
