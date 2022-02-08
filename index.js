@@ -66,7 +66,7 @@ const paginationEmbed = async (msg, pages, buttonList, timeout = 120000) => {
         buttonList[1].setDisabled(true)
       );
       curPage.edit({
-        embeds: [pages[page].setFooter(`Page ${page + 1} / ${pages.length}`)],
+        embeds: [pages[page].setFooter({text: `Page ${page + 1} / ${pages.length}`})],
         components: [disabledRow],
       });
     }
