@@ -31,8 +31,8 @@ const paginationEmbed = async (
 
   const row = new MessageActionRow().addComponents(buttonList);
 
-  //has the interaction already been deferred? If not, defer the reply.
-  if (interaction.deferred == false) {
+  //has the interaction already been deferred? If not, defer the reply. also check if already replied
+  if (interaction.deferred == false && interaction.replied == false) {
     await interaction.deferReply();
   }
 
