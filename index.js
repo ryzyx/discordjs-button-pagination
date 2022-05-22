@@ -30,6 +30,10 @@ const paginationEmbed = async (
   let page = 0;
 
   const row = new MessageActionRow().addComponents(buttonList);
+  const disabledRow = new MessageActionRow().addComponents(
+		buttonList[0].setDisabled(true),
+		buttonList[1].setDisabled(true)
+	);
 
   //has the interaction already been deferred? If not, defer the reply.
   if (interaction.deferred == false) {
@@ -38,7 +42,7 @@ const paginationEmbed = async (
 
   const curPage = await interaction.editReply({
     embeds: [pages[page].setFooter({ text: `Page ${page + 1} / ${pages.length}` })],
-    components: [row],
+    components: [(page.length == 1 ? disabledRow : row)],
     fetchReply: true,
   });
 
