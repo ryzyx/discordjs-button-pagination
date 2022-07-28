@@ -56,11 +56,9 @@ const paginationEmbed = async (
  
     switch (i.customId) {
       case buttonList.components[0].data.custom_id:
-       console.log('button 0 got cli')
         page = page > 0 ? --page : pages.length - 1;
         break;
       case buttonList.components[1].data.custom_id:
-        console.log('button 1 got clicked');
         page = page + 1 < pages.length ? ++page : 0;
         break;
       default:
