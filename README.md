@@ -27,7 +27,7 @@ For `interaction` event
 ## Default command: `npm install discordjs-button-pagination` will install the **`interaction`** version
 
 # Requirements
-Node.js 18.0.0 or newer is required along with Discord.js 14.1.2 or newer.
+Node.js 16.9.0 or newer is required along with Discord.js 14.1.2 or newer.
 
 
 # Usage for Interaction (Slash Command)
