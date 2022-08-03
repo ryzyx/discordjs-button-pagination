@@ -27,35 +27,35 @@ For `interaction` event
 ## Default command: `npm install discordjs-button-pagination` will install the **`interaction`** version
 
 # Requirements
-Node.js 16.6.1 or newer is required along with Discord.js 13.0.0 or newer.
+Node.js 18.0.0 or newer is required along with Discord.js 14.1.2 or newer.
 
 
-# Usage for Message Command
+# Usage for Interaction (Slash Command)
 __Basic Bot Example__
 ```js
 // Import the discordjs-button-pagination package
 const paginationEmbed = require('discordjs-button-pagination');
 
-// Use MessageEmbed to make pages
+// Use EmbedBuilder to make pages
 // Keep in mind that Embeds should't have their footers set since the pagination method sets page info there
-const { MessageEmbed , MessageButton} = require('discord.js');
-const embed1 = new MessageEmbed()
+const { EmbedBuilder , ButtonBuilder} = require('discord.js')
+const embed1 = new EmbedBuilder()
                 .setTitle('First Page')
                 .setDescription('This is the first page');
 
-const embed2 = new MessageEmbed()
+const embed2 = new EmbedBuilder()
                 .setTitle('Second Page')
                 .setDescription('This is the second page');
 
-const button1 = new MessageButton()
+const button1 = new ButtonBuilder()
                 .setCustomId('previousbtn')
                 .setLabel('Previous')
-                .setStyle('DANGER');
+                .setStyle('Danger');
 
-const button2 = new MessageButton()
+const button2 = new ButtonBuilder()
                 .setCustomId('nextbtn')
                 .setLabel('Next')
-                .setStyle('SUCCESS');
+                .setStyle('Success');
 
 // Create an array of embeds
 pages = [
@@ -75,7 +75,7 @@ buttonList = [
 
 // Call the paginationEmbed method, first three arguments are required
 // timeout is the time till the reaction collectors are active, after this you can't change pages (in ms), defaults to 120000
-paginationEmbed(message, pages, buttonList, timeout);
+paginationEmbed(interaction, pages, buttonList, timeout);
 // There you go, now you have paged embeds
 ```
 
