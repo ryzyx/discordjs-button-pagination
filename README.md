@@ -80,6 +80,7 @@ paginationEmbed(interaction, pages, buttonList, timeout);
 ```
 
 # Note
+You must use the following custom ids for it to work. "previousbtn" and "nextbtn"
 This will not work with buttons whose style is set as 'LINK' as they do not trigger an interaction event. The buttons will auto disable once the the collector ends after the timeout.
 ## The collector timer resets after receiving a button interaction.
 
