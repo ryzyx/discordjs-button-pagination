@@ -1,15 +1,10 @@
-const {
-  MessageActionRow,
-  Message,
-  MessageEmbed,
-  MessageButton,
-} = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, ComponentType } = require('discord.js');
 
 /**
  * Creates a pagination embed
  * @param {Interaction} interaction
- * @param {MessageEmbed[]} pages
- * @param {MessageButton[]} buttonList
+ * @param {EmbedBuilder[]} pages
+ * @param {ButtonBuilder[]} buttonList
  * @param {number} timeout
  * @returns
  */
@@ -29,7 +24,7 @@ const paginationEmbed = async (
 
   let page = 0;
 
-  const row = new MessageActionRow().addComponents(buttonList);
+  const row = new ActionRowBuilder().addComponents(buttonList);
 
   //has the interaction already been deferred? If not, defer the reply.
   if (interaction.deferred == false) {
@@ -42,21 +37,22 @@ const paginationEmbed = async (
     fetchReply: true,
   });
 
-  const filter = (i) =>
+  const filter = (i) => {
+    i.deferUpdate();
     i.customId === buttonList[0].customId ||
     i.customId === buttonList[1].customId;
-
+  };
   const collector = await curPage.createMessageComponentCollector({
-    filter,
     time: timeout,
+    componentType: ComponentType.Button,
   });
 
   collector.on("collect", async (i) => {
     switch (i.customId) {
-      case buttonList[0].customId:
+      case "previousbtn":
         page = page > 0 ? --page : pages.length - 1;
         break;
-      case buttonList[1].customId:
+      case "nextbtn":
         page = page + 1 < pages.length ? ++page : 0;
         break;
       default:
@@ -72,7 +68,7 @@ const paginationEmbed = async (
 
   collector.on("end", (_, reason) => {
     if (reason !== "messageDelete") {
-      const disabledRow = new MessageActionRow().addComponents(
+      const disabledRow = new ActionRowBuilder().addComponents(
         buttonList[0].setDisabled(true),
         buttonList[1].setDisabled(true)
       );
